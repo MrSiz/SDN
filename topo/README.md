@@ -1,5 +1,5 @@
 #### 说明
-利用`networkx`从`data.gml`文件中读取数据,构建网络拓扑。其他网络拓扑可从[topology-zoo](!http://www.topology-zoo.org/)获取。
+利用`networkx`从`data.gml`文件中读取数据,构建网络拓扑。其他网络拓扑可从`topology-zoo(http://www.topology-zoo.org/)`获取。
 
 #### 依赖
 + `networkx`库
