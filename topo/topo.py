@@ -22,7 +22,7 @@ class MyTopo(Topo):
         for node in G.nodes():
             name_to_switch[node] = 's%d' % index
             name_to_return[node] = self.addSwitch('s%d' % index)
-            temp_host = self.addHost('h%d' % index)
+            temp_host = self.addHost('h%d' % index, ip='10.0.0.%d' % index, mac='00:00:00:00:00:%02x' % index)
             self.addLink(temp_host, name_to_return[node])
             index += 1
 

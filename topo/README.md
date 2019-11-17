@@ -11,3 +11,6 @@ sudo mn --clean
 sudo mn --custom ./topo.py --topo mytopo --controller remote
 ```
 **注意**: 拓扑可能存在环，所以需要在控制器一端处理环形拓扑，否则会出现网络风暴。
+
+#### 更新
++ 预设主机`IP`和`MAC`地址。 2019.11.17

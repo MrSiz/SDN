@@ -160,7 +160,7 @@ int main(int argc, char **argv) {
     // sender.send(eth, iface);
 
     // const int MAX_CNT = (rand() % 10 + 2);
-    const int MAX_NUM = 20;
+    const int MAX_NUM = 10000;
 
     // const std::string dest_ip = "10.0.0.4";
     // const std::string dest_mac = "00:00:00:00:00:04";
@@ -173,7 +173,7 @@ int main(int argc, char **argv) {
         for (int send_num = 0; send_num < MAX_NUM; ++send_num) {
             auto packet_to_send = getEthernetII(dest_ip, dest_mac, rand_ip, rand_mac);
             sender.send(packet_to_send, dev);
-            sleep(1);
+            usleep(500);
         }
     }
 

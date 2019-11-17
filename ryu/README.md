@@ -2,7 +2,8 @@
 按照不同的功能，对此文件夹下的文件进行说明。
 
 #### 运行
-在终端窗口中输入`ryu-manager xx.py --observe-links`
+在终端窗口中输入`ryu-manager xx.py --observe-links`      
+
 **注**: `ryu`支持多个应用同时运行，所以可以加上多个`xx.py`文件，加上`--observe-links`会产生`LLDP`报文，以此实现控制器对交换机的发现。更多的命令行参数详见`ryu-manger --help`。
 
 #### 基于IP地址的逐跳规则下发
