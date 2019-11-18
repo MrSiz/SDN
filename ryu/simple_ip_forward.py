@@ -29,6 +29,10 @@ class SIMPE_IP_FORWARD(app_manager.RyuApp):
         # 记录mac地址对应的端口号
         self.mac_to_port = {}
 
+        # 记录异常的PacketIn消息个数
+        self.cnt = 0
+
+
     # 控制器与交换机建立连接时，下发默认规则到交换机上，默认将不匹配的流上传到控制器处理
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
@@ -108,14 +112,18 @@ class SIMPE_IP_FORWARD(app_manager.RyuApp):
         elif eth.ethertype == ether_types.ETH_TYPE_IP:
             ip_pkt = pkt.get_protocol(ipv4.ipv4)
             dst_mac = eth.dst
+            src_mac = eth.src
             dpid = datapath.id
 
-            if dst_mac in self.mac_to_port[dpid]:
+            # 判断对应的端口和mac地址是否匹配
+            if dpid in self.mac_to_port and dst_mac in self.mac_to_port[dpid] and src_mac in self.mac_to_port[dpid]\
+                    and in_port == self.mac_to_port[dpid][src_mac]:
                 out_port = self.mac_to_port[dpid][dst_mac]
             else:
                 out_port = None
             if not out_port:
-                self.logger("ERROR: No matched outport")
+                self.cnt += 1
+                self.logger.info("ERROR: No matched outport num: %d", self.cnt)
                 return
             else:
                 # 找到了对应的出端口，再做两件事

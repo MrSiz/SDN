@@ -14,3 +14,4 @@ sudo mn --custom ./topo.py --topo mytopo --controller remote
 
 #### 更新
 + 预设主机`IP`和`MAC`地址。 2019.11.17
++ 保存拓扑图片。 2019.11.18

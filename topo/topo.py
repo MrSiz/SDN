@@ -1,7 +1,7 @@
 #coding=utf-8
 
 import networkx as nx
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from mininet.topo import Topo
 from mininet.log import setLogLevel,info
 from mininet.net import Mininet
@@ -28,6 +28,7 @@ class MyTopo(Topo):
 
         for u, v in G.edges():
             self.addLink(name_to_return[u], name_to_return[v])
-
+        nx.draw(G, with_labels=True, font_weight='bold')
+        plt.savefig("graph.png", format="PNG")
 
 topos = {'mytopo': (lambda : MyTopo())}
