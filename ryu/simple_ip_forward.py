@@ -13,6 +13,11 @@ from ryu.lib.packet import arp
 from collections import  defaultdict
 
 
+import signal
+
+
+
+
 # 功能
 # 控制器根据arp报文，记录mac地址和转发端口，在收到新的ip报文时再下发对应规则，进行转发
 
@@ -32,6 +37,15 @@ class SIMPE_IP_FORWARD(app_manager.RyuApp):
         # 记录异常的PacketIn消息个数
         self.cnt = 0
 
+        signal.signal(signal.SIGINT, self.signal_handler)
+
+    def signal_handler(self, signum, frame):
+        import sys
+        import datetime
+        with open("data.log", 'a') as f:
+            f.write('%s\n' % datetime.datetime.now())
+            f.write(str(sys.getsizeof(self.mac_to_port)))
+        sys.exit(0)
 
     # 控制器与交换机建立连接时，下发默认规则到交换机上，默认将不匹配的流上传到控制器处理
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)

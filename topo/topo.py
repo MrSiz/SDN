@@ -10,15 +10,16 @@ from mininet.cli import CLI
 from mininet.util import dumpNodeConnections
 
 # 从gml文件读入数据，构建拓扑
-file = './data.gml'
+f = 'dataset/data3.gml'
 
 class MyTopo(Topo):
     def __init__(self):
         Topo.__init__(self)
-        G = nx.read_gml('./data.gml')
+        G = nx.read_gml(f)
         name_to_return = dict()
         name_to_switch = dict()
         index = 1
+
         for node in G.nodes():
             name_to_switch[node] = 's%d' % index
             name_to_return[node] = self.addSwitch('s%d' % index)
@@ -28,6 +29,11 @@ class MyTopo(Topo):
 
         for u, v in G.edges():
             self.addLink(name_to_return[u], name_to_return[v])
+
+        G = nx.relabel_nodes(G, name_to_switch)
+        for i in range(1, index):
+            G.add_edge('h%d' % i, 's%d' % i)
+
         nx.draw(G, with_labels=True, font_weight='bold')
         plt.savefig("graph.png", format="PNG")
 
