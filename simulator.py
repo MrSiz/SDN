@@ -155,7 +155,7 @@ def switch_work(switch_id):
     consumer_num = 0
     pending = Queue()
     ispend = defaultdict(int)
-    pend_cnt = 0, 0
+    # nor_cnt, pend_cnt = 0, 0
     while now() <= STOP_TIME:
         # print('switch_id{0}\n'.format(switch_id))
         # 服务时间服从指数分布
@@ -201,22 +201,22 @@ def switch_work(switch_id):
             # print('receveid from controller, switch_id:{0}\n'.format(switch_id))
             # 控制器下发给交换机的消息中包含路径
             path = data["content"]
-            print('received from controller')
+            # print('received from controller')
             # 相当于交换机在处理flowmod消息
             wait_time += serv_time
             consumer_num += 1
             for i in range(1, len(path)):
                 if path[i] == switch_id:
-                    print('path{0} index{1}\n'.format(path, i))
+                    # print('path{0} index{1}\n'.format(path, i))
                     if i + 1 < len(path) and path[i + 1] != path[-1]:
-                        print('path[{0} {1}]\n'.format(path[0], path[-1]))
+                        # print('path[{0} {1}]\n'.format(path[0], path[-1]))
                         nxt_switch[(path[0], path[-1])] = path[i + 1]
                     else:
                         nxt_switch[(path[0], path[-1])] = -1
                     break 
             # 把缓冲的数据包都转发出去
             temp = Queue()
-            print('switch {1} sizeof pending:{0}\n'.format(pending.qsize(), switch_id))
+            # print('switch {1} sizeof pending:{0}\n'.format(pending.qsize(), switch_id))
             while pending.qsize() != 0:
                 try:
                     data = pending.get(block=False)
@@ -224,11 +224,11 @@ def switch_work(switch_id):
                     break
                 src = data["content"][0]
                 dst = data["content"][1]
-                print('will forward to {0}\n'.format(nxt_switch[(src, dst)]))
+                # print('will forward to {0}\n'.format(nxt_switch[(src, dst)]))
                 # 给pending的数据包再加一个处理延时
                 pending_serv_time = 0 
                 if nxt_switch[(src, dst)] != -2:
-                    pend_cnt += 1
+                    # pend_cnt += 1
                     if nxt_switch[(src, dst)] == -1:
                         # 现在的时间 - 加入缓冲队列的时间
                         pending_serv_time = exp(mu)
@@ -286,15 +286,17 @@ def controller_work():
             # print('no data\n')
             continue
         # print('controller\n')
+
         serv_time = exp(mu)
         time.sleep(serv_time)
         now_time = now()
         dif = now_time - data['time']
         wait_time += dif    
-        print('now:{1} pre:{2}controller_wait_time:{0} diff:{3} serv:{4}'.format(wait_time, now_time, data['time'], dif, serv_time))
+        # print('now:{1} pre:{2}controller_wait_time:{0} diff:{3} serv:{4}'.format(wait_time, now_time, data['time'], dif, serv_time))
         consumer_num += 1
         src = data["content"][0]
         dst = data["content"][1]
+        print('controller switch_id:[{0}] ({1}, {2})\n'.format(data["switch_id"], src, dst))
         dict_path.setdefault(src, {})
         # print('(( controller [{2}] {0}  {1}) serv_time: {3})'.format(src, dst, data["switch_id"], serv_time))
         path = None
