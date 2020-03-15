@@ -22,6 +22,7 @@ import random
 import time
 import math
 import copy
+import logging
 
 #   拓扑结构
 
@@ -33,6 +34,13 @@ import copy
 #  |    |    |      |
 #  h0   h1   h2     h3
 
+
+logging.basicConfig(level=logging.DEBUG,
+                    filename='debug.log',
+                    filemode='w',
+                    format='%(message)s'
+                    )
+
 host_nums = 4
 switch_nums = 10
 
@@ -41,7 +49,7 @@ host_queues = [Queue() for i in range(host_nums)]
 switch_queues = [Queue() for i in range(switch_nums)]
 
 # 模拟的时长，单位: 秒
-MAXTIME = 20
+MAXTIME = 30
 
 # 每个交换机对应有多少个线程
 switch_thread_num = {
@@ -148,12 +156,14 @@ def host_work(host_id, switch_id):
             dst_host_id = random.randint(0, 3)
         if vis[(host_id, dst_host_id)] == 0:
             vis[(host_id, dst_host_id)] = 1
+        # 调试用
+        # dst_host_id = 3
             # print('({0} {1})\n'.format(host_id, dst_host_id))
         # print('host[{0}] ({1} {2} addinto switch[{3}])\n'.format(host_id, host_id, dst_host_id, switch_id))
         # 按照指数时间间隔向相邻交换机发送数据包
         time.sleep(exp(lamb))
         # with swith_queueu_lock:
-        # print('host:[{0}] ({1}, {2})\n'.format(host_id, host_id, dst_host_id))
+        logging.debug('host:[{0}] ({1}, {2})'.format(host_id, host_id, dst_host_id))
         switch_queues[switch_id].put(gen_packet(1, (host_id, dst_host_id), now()))
         cnt[dst_host_id] += 1
         # break
@@ -176,6 +186,7 @@ def switch_work(switch_id):
     ispend = defaultdict(int)
     mylock = rwlock.RWLockWrite()
     mtx = Lock()
+
     def worker():
         nonlocal mu 
         nonlocal STOP_TIME
@@ -188,19 +199,23 @@ def switch_work(switch_id):
                 data = switch_queues[switch_id].get(block=False)
             except:
                 continue
-
+            with mtx:
+                wait_time += now() - data["time"]
+                consumer_num += 1
             serv_time = exp(mu)
-            time.sleep(serv_time)
+            logging.debug('switch_id[{0}] received data{1}'.format(switch_id, data))
             # 普通的数据包
             if data["type"] == 1:
+                time.sleep(serv_time)
                 src = data["content"][0]
                 dst = data["content"][1]
                 with mylock.gen_rlock():
                     # 不知道该数据包的下一跳 且是第一次收到该数据包，就上传到控制器和缓冲队列中
+                    # logging.debug('switch_id[{0}] nxt_switch{1}'.format(switch_id, nxt_switch[(src, dst)]))
                     if nxt_switch[(src, dst)] == -2 and ispend[(src, dst)] == 0:
                         ispend[(src, dst)] = 1
                         
-                        print('switch:[{0}] ({1}, {2}) up \n'.format(switch_id, src, dst))
+                        logging.debug('switch:[{0}] ({1}, {2}) up'.format(switch_id, src, dst))
                         controller_queue.put(gen_packet(2, (src, dst), now(), switch_id))
                         pending.put(copy.deepcopy(data))
                     # 不是第一次收到该数据包，但还不知道怎么转发，就放到缓冲队列中
@@ -212,11 +227,7 @@ def switch_work(switch_id):
                         switch_queues[nxt_switch[(src, dst)]].put(gen_packet(1, (src, dst), now()))
 
                         # 在把数据包转发给其他交换机的时候统计时间
-                        with mtx:
-                            wait_time += serv_time
-                            consumer_num += 1
-                        
-                        print('switch:[{0}] ({1}, {2}) forward {3}\n'.format(switch_id, src, dst, nxt_switch[(src, dst)]))
+                        logging.debug('switch:[{0}] ({1}, {2}) forward {3}\n'.format(switch_id, src, dst, nxt_switch[(src, dst)]))
                     # 值为-1，则表示下一跳是主机，不传过去了
                     elif nxt_switch[(src, dst)] == -1:
                         pass
@@ -227,13 +238,14 @@ def switch_work(switch_id):
                 path = data["content"]
                 # print('received from controller')
                 # 相当于交换机在处理flowmod消息
-                with mtx:
-                    wait_time += serv_time
-                    consumer_num += 1
+                # with mtx:
+                #     wait_time += serv_time
+                #     consumer_num += 1
+                time.sleep(serv_time)
                 for i in range(1, len(path)):
                     if path[i] == switch_id:
                         # print('path{0} index{1}\n'.format(path, i))
-                        if i + 1 < len(path) and path[i + 1] != path[-1]:
+                        if i + 1 < len(path) - 1:
                             # print('path[{0} {1}]\n'.format(path[0], path[-1]))
                             with mylock.gen_wlock():
                                 nxt_switch[(path[0], path[-1])] = path[i + 1]
@@ -264,7 +276,7 @@ def switch_work(switch_id):
                                 with mtx:
                                     wait_time += now() - data["time"]
                                     consumer_num += 1
-                                print('switch:[{0}] ({1}, {2}) pending forward \n'.format(switch_id, src, dst))
+                                logging.debug('switch:[{0}] ({1}, {2}) pending forward'.format(switch_id, src, dst))
                             else:
                                 # with swith_queueu_lock:
                                 pending_serv_time = exp(mu)
@@ -273,7 +285,7 @@ def switch_work(switch_id):
                                 with mtx:
                                     wait_time += now() - data["time"]
                                     consumer_num += 1
-                                print('switch:[{0}] ({1}, {2}) pending forward \n'.format(switch_id, src, dst))
+                                logging.debug('switch:[{0}] ({1}, {2}) pending forward'.format(switch_id, src, dst))
                         else:
                             # 继续缓冲着
                             # print('???????')
@@ -329,32 +341,36 @@ def controller_work():
             try:
                 data = controller_queue.get(block=False)
             except:
-                # print('no data\n')
                 continue
-            # print('controller\n')
 
             serv_time = exp(mu)
-            time.sleep(serv_time)
+
             now_time = now()
             dif = now_time - data['time']
             with mtx:
                 wait_time += dif    
                 consumer_num += 1
+            time.sleep(serv_time)
             src = data["content"][0]
             dst = data["content"][1]
-            print('controller switch_id:[{0}] ({1}, {2})\n'.format(data["switch_id"], src, dst))
+            
             with mylock.gen_wlock():
                 dict_path.setdefault(src, {})
                 path = None
                 if dst in dict_path[src]:
                     path = dict_path[src][dst]
+                    # continue
                 else:
                     path = get_path(graph, src, dst)
                     dict_path[src][dst] = path
-
+            logging.debug('controller switch_id:[{0}] ({1}, {2}) path:{3}'.format(data["switch_id"], src, dst, path))
             if path is not None:
-                for switch in path[1:-1]:
-                    switch_queues[switch].put(gen_packet(3, copy.deepcopy(path), now()))
+                for i in range(len(path) - 2, 0, -1):
+                    switch_queues[path[i]].put(gen_packet(3, copy.deepcopy(path), now()))
+                    logging.debug('controller send flowmod to switch[{0}]'.format(path[i]))
+                # for switch in path[1:-1]:
+                #     
+                #     switch_queues[switch].put(gen_packet(3, copy.deepcopy(path), now()))
     
     work_thread = []
     for _ in range(controller_thread_num):
@@ -370,9 +386,7 @@ if __name__ == '__main__':
     random.seed(int(time.time()))
     signal.signal(signal.SIGINT, signal_handler)
 
-    controller_thread = Thread(target=controller_work, args=(), daemon=False)
-    controller_thread.start()
-    # controller_thread.join()
+
 
     swtich_thread = []
     for i in range(switch_nums):
@@ -385,6 +399,9 @@ if __name__ == '__main__':
         host_thread.append(Thread(target=host_work, args=(i, i,), daemon=False))
     for h in host_thread:
         h.start()
+    
+    controller_thread = Thread(target=controller_work, args=(), daemon=False)
+    controller_thread.start()
 
     for s in swtich_thread:
         s.join()
@@ -392,4 +409,7 @@ if __name__ == '__main__':
     for h in host_thread:
         h.join()
 
+    controller_thread.join()    
+    
+    print('finished')
 
