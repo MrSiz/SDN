@@ -39,7 +39,7 @@ host_queues = [Queue() for i in range(host_nums)]
 switch_queues = [Queue() for i in range(switch_nums)]
 
 # 模拟的时长，单位: 秒
-MAXTIME = 20
+MAXTIME = 30
 
 
 # swith_queueu_lock = Lock()
@@ -165,19 +165,19 @@ def switch_work(switch_id):
             data = switch_queues[switch_id].get(block=False)
         except:
             continue
-
+        wait_time += now() - data["time"]
+        consumer_num += 1
         serv_time = exp(mu)
-        time.sleep(serv_time)
         # 普通的数据包
         if data["type"] == 1:
             src = data["content"][0]
             dst = data["content"][1]
-
+            time.sleep(serv_time)
             # 不知道该数据包的下一跳 且是第一次收到该数据包，就上传到控制器和缓冲队列中
             if nxt_switch[(src, dst)] == -2 and ispend[(src, dst)] == 0:
                 ispend[(src, dst)] = 1
                 
-                print('switch:[{0}] ({1}, {2}) up \n'.format(switch_id, src, dst))
+                # print('switch:[{0}] ({1}, {2}) up \n'.format(switch_id, src, dst))
                 controller_queue.put(gen_packet(2, (src, dst), now(), switch_id))
                 pending.put(copy.deepcopy(data))
             # 不是第一次收到该数据包，但还不知道怎么转发，就放到缓冲队列中
@@ -189,10 +189,10 @@ def switch_work(switch_id):
                 switch_queues[nxt_switch[(src, dst)]].put(gen_packet(1, (src, dst), now()))
 
                 # 在把数据包转发给其他交换机的时候统计时间
-                wait_time += serv_time
-                consumer_num += 1
+                # wait_time += serv_time
+                # consumer_num += 1
                 
-                print('switch:[{0}] ({1}, {2}) forward {3}\n'.format(switch_id, src, dst, nxt_switch[(src, dst)]))
+                # print('switch:[{0}] ({1}, {2}) forward {3}\n'.format(switch_id, src, dst, nxt_switch[(src, dst)]))
             # 值为-1，则表示下一跳是主机，不传过去了
             elif nxt_switch[(src, dst)] == -1:
                 pass
@@ -203,12 +203,13 @@ def switch_work(switch_id):
             path = data["content"]
             # print('received from controller')
             # 相当于交换机在处理flowmod消息
-            wait_time += serv_time
-            consumer_num += 1
+            # wait_time += serv_time
+            time.sleep(serv_time)
+            # consumer_num += 1
             for i in range(1, len(path)):
                 if path[i] == switch_id:
                     # print('path{0} index{1}\n'.format(path, i))
-                    if i + 1 < len(path) and path[i + 1] != path[-1]:
+                    if i + 1 < len(path):
                         # print('path[{0} {1}]\n'.format(path[0], path[-1]))
                         nxt_switch[(path[0], path[-1])] = path[i + 1]
                     else:
@@ -235,14 +236,14 @@ def switch_work(switch_id):
                         time.sleep(pending_serv_time)
                         wait_time += now() - data["time"]
                         consumer_num += 1
-                        print('switch:[{0}] ({1}, {2}) pending forward \n'.format(switch_id, src, dst))
+                        # print('switch:[{0}] ({1}, {2}) pending forward \n'.format(switch_id, src, dst))
                     else:
                         # with swith_queueu_lock:
                         pending_serv_time = exp(mu)
                         time.sleep(pending_serv_time)
                         switch_queues[nxt_switch[(src, dst)]].put(gen_packet(1, (src, dst), now()))
                         wait_time += now() - data["time"]
-                        print('switch:[{0}] ({1}, {2}) pending forward \n'.format(switch_id, src, dst))
+                        # print('switch:[{0}] ({1}, {2}) pending forward \n'.format(switch_id, src, dst))
                         consumer_num += 1
                 else:
                     # 继续缓冲着
@@ -288,10 +289,10 @@ def controller_work():
         # print('controller\n')
 
         serv_time = exp(mu)
-        time.sleep(serv_time)
         now_time = now()
         dif = now_time - data['time']
-        wait_time += dif    
+        wait_time += dif   
+        time.sleep(serv_time) 
         # print('now:{1} pre:{2}controller_wait_time:{0} diff:{3} serv:{4}'.format(wait_time, now_time, data['time'], dif, serv_time))
         consumer_num += 1
         src = data["content"][0]
