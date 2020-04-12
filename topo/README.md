@@ -31,7 +31,9 @@ sudo mn --custom ./topo.py --topo mytopo --controller remote
 通过`man mn`可以看到mininet支持建立`linear|minimal|reversed|single|torus|tree`等结构的拓扑。在实验中，为了快速建立拓扑，可以使用mininet的`--topo`选项达到该目的。
 
 + 建立只有1个交换机的拓扑，即`single`,命令为`sudo mn --topo=single,4 --controller=remote`,数字`4`表示的是主机个数,`--controller=remote`表示连接到远程交换机，后文不再赘述。
-+ 直线型，即`linear`。交换机连接为一条直线，命令为`sudo mn --topo=linear 4`,数字`4`表示的是主机和交换机个数皆为4,即1:1的关系。
++ 直线型，即`linear`。交换机连接为一条直线，命令为`sudo mn --topo=linear,4`,数字`4`表示的是主机和交换机个数皆为4,即1:1的关系。
 + 默认的,即`minimal`,只有1个交换机和2个主机连接着，命令为`sudo mn --topo=minimal`。
+
+注:在使用`mininet`后，使用`sudo mn -c`清理拓扑。
 
 其余选项，读者可以自行尝试。

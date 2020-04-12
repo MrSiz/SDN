@@ -164,7 +164,7 @@ int main(int argc, char **argv) {
 
     // const int MAX_CNT = (rand() % 10 + 2);
     // 每轮的发包数
-    const int MAX_NUM = 70000;
+    const int MAX_NUM = 500;
 
     // const std::string dest_ip = "10.0.0.4";
     // const std::string dest_mac = "00:00:00:00:00:04";
