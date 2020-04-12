@@ -10,13 +10,13 @@ static std::ofstream f{"record.log"};
 class Consumer {
 public:
     bool operator()(Packet& packet) {
-        std::cout << "pcaket.....\n";
+        // std::cout << "pcaket.....\n";
         std::string ip_record = "";
         if (packet.pdu()->find_pdu<IP>()) {
-            std::cout << "At: " << packet.timestamp().microseconds()
-                      << " - " << packet.pdu()->rfind_pdu<IP>().src_addr() << std::endl;
+            // std::cout << "At: " << packet.timestamp().microseconds()
+                    //   << " - " << packet.pdu()->rfind_pdu<IP>().src_addr() << std::endl;
             ip_record = packet.pdu()->rfind_pdu<IP>().src_addr().to_string();
-            std::cout << "what happend " << ip_record << "\n";
+            // std::cout << "what happend " << ip_record << "\n";
         }
 
         if (packet.pdu()->find_pdu<RawPDU>()) {
@@ -25,22 +25,23 @@ public:
             for (const auto &ele : val) {
                 pre = (pre * 10) + ele;
             }
-            std::cout << "pre: " << pre << std::endl;
-            std::cout << "timestamp: " << packet.timestamp().seconds() << " " << packet.timestamp().microseconds() << std::endl;
+            // std::cout << "pre: " << pre << std::endl;
+            // std::cout << "timestamp: " << packet.timestamp().seconds() << " " << packet.timestamp().microseconds() << std::endl;
             auto test_now =
             std::chrono::system_clock::now().time_since_epoch() / 
             std::chrono::microseconds(1);
-            std::cout << "test_now: " << test_now << std::endl;
+            // std::cout << "test_now: " << test_now << std::endl;
             // std::cout.flush();
             auto now = packet.timestamp().seconds() * 1000000 + packet.timestamp().microseconds();
             auto dif = (now - pre) / 1000.0;
-            std::cout << "now: " << now << "\n"
-                      << "dif: " << dif << "ms\n";
+            // std::cout << "now: " << now << " "
+            std::cout << "dif: " << dif << " ms ";
             if (!ip_record.empty()) {
-                std::cout << "write to file" << "\n";
-                std::cout << "ip = " << ip_record << "\n";
-                f << ip_record << " " << dif << "\n";
-                f.flush();
+                // std::cout << "write to file" << "\n";
+                std::cout << "ip： " << ip_record << "\n";
+                std::cout.flush();
+                // f << ip_record << " " << dif << "\n";
+                // f.flush();
             }
         }
         return true;
@@ -68,10 +69,10 @@ int main() {
 
     #ifdef LOCAL
         NetworkInterface::Info info = dev.addresses();
-        std::cout << "=====================================\n"
-                  << "\tdevice name: " << dev.name() << "\n"
-                  << "\tdevice ip:   " << info.ip_addr << "\n"
-                  << "=====================================\n";
+        // std::cout << "=====================================\n"
+        //           << "\tdevice name: " << dev.name() << "\n"
+        //           << "\tdevice ip:   " << info.ip_addr << "\n"
+        //           << "=====================================\n";
 
     #endif
 
@@ -83,9 +84,9 @@ int main() {
     config.set_snap_len(65535);
     config.set_immediate_mode(true);
 
-    std::cout << "press ctrl + c to exit" << "\n"
-              << "\n----------------------\n"
-              << "start sniffing....\n";
+    // std::cout << "press ctrl + c to exit" << "\n"
+    //           << "\n----------------------\n"
+    //           << "start sniffing....\n";
     Sniffer sniffer(dev.name(), config);
 
     sniffer.sniff_loop(Consumer(), 0);

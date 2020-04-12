@@ -26,3 +26,14 @@ cbench可以用来测试控制器的性能，主要原理是伪造PacketIn消息
 
 #### 参考资料
 + https://www.sdnlab.com/15112.html
+
+---
+#### tcpdump
+抓包工具，可以使用tcpdump直接从mininet的交换机上的网卡抓包。
+```
+sudo tcpdump udp -i s1-eth2 -Q out >> out.txt
+```
+使用上述命令即是只抓取`udp`报文，方向为`out`，重定向输出到`out.txt`文件，以便后续相关的分析。更多的使用方法可以参考`man tcpdump`。
+
+
+#### tshark

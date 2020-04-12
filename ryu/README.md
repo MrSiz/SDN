@@ -17,3 +17,9 @@
 
 #### 针对控制器的性能测试
 该测试主要实现于`flowmod_cbench.py`文件，需搭配Cbench使用。先运行该文件，再设置Cbench的相关参数，即可在Cbench一端得到相应的测试结果。
+
+#### 针对交换机PacketIn产生速率的测试
+该测试的控制器代码实现于`packetin_test.py`文件，该文件只在最开始下发一条默认的产生`PacketIn`消息的流规则,在正常收到`PacketIn`消息的时候，不做其他处理。
+
+#### 针对交换机处理FlowMod消息的速率测试
+该测试的控制器代码实现于`flowmod_cbench.py`文件，该文件在每次收到`PacketIn`消息的时候下发`Flowmod`消息到交换机上。

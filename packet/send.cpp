@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <ctime>
 #include <cstring>
+#include <unordered_map>
+
 
 #include <unistd.h>
 #include <netinet/in.h>
@@ -46,7 +48,7 @@ static std::string get_randmac() {
         if (i != 6) mac.push_back(':');
     }
     #ifdef LOCAL
-        std::cout << "rand mac: " << mac << std::endl;
+        // std::cout << "rand mac: " << mac << std::endl;
     #endif
     return mac;
 }
@@ -109,7 +111,8 @@ static EthernetII getEthernetII(const std::string& dst_ip_ = "10.0.0.4", const s
 int main(int argc, char **argv) {
     srand(unsigned(time(NULL)));
     std::string dest_ip = "10.0.0.4", dest_mac = "00:00:00:00:00:04";
-    int MAX_CNT = rand() % 10 + 1;
+    // 轮数
+    int MAX_CNT = 1; //rand() % 10 + 1;
     int ch;
     while ((ch = getopt(argc, argv, "I:M:N:")) != -1) {
         switch (ch) {
@@ -124,9 +127,9 @@ int main(int argc, char **argv) {
                 break;
         }
     }
-    std::cout << "dest_ip: " << dest_ip << "\n";
-    std::cout << "dest_mac: " << dest_mac << "\n";
-    std::cout << "MAX_CNT: " << MAX_CNT << "\n\n";
+    // std::cout << "dest_ip: " << dest_ip << "\n";
+    // std::cout << "dest_mac: " << dest_mac << "\n";
+    // std::cout << "MAX_CNT: " << MAX_CNT << "\n\n";
 
 
 
@@ -160,20 +163,26 @@ int main(int argc, char **argv) {
     // sender.send(eth, iface);
 
     // const int MAX_CNT = (rand() % 10 + 2);
-    const int MAX_NUM = 10000;
+    // 每轮的发包数
+    const int MAX_NUM = 70000;
 
     // const std::string dest_ip = "10.0.0.4";
     // const std::string dest_mac = "00:00:00:00:00:04";
-
+    std::unordered_map<std::string, bool> vis;
     for (int packet_cnt = 0; packet_cnt < MAX_CNT; ++packet_cnt) {
-        std::cout << "\n";
-        auto rand_ip = get_randip();
+        // std::cout << "\n";
+    //    auto rand_ip = get_randip();
+    //    if (vis.count(rand_ip)) continue;
+        auto rand_ip = "10.0.0.1";
         auto rand_mac = get_randmac();
-        std::cout << "\n";
+        // std::cout << rand_ip << "\n";
         for (int send_num = 0; send_num < MAX_NUM; ++send_num) {
             auto packet_to_send = getEthernetII(dest_ip, dest_mac, rand_ip, rand_mac);
             sender.send(packet_to_send, dev);
+            // std::cout << "send packets\n";
             usleep(500);
+            // usleep(800000);
+            // sleep(1);
         }
     }
 
