@@ -1,0 +1,65 @@
+Apr 15, 2020 13:09:20.605997874 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_PORT_STATUS
+Apr 15, 2020 13:09:20.647709829 CST    127.0.0.1 → 127.0.0.1    TCP 6653 → 48862 [ACK] Seq=1 Ack=81 Win=86 Len=0 TSval=545679921 TSecr=545679880
+Apr 15, 2020 13:09:23.448501153 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:09:23.448514110 CST    127.0.0.1 → 127.0.0.1    TCP 6653 → 48862 [ACK] Seq=1 Ack=89 Win=86 Len=0 TSval=545682722 TSecr=545682722
+Apr 15, 2020 13:09:23.449074638 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:09:23.449085122 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=89 Ack=9 Win=86 Len=0 TSval=545682723 TSecr=545682723
+Apr 15, 2020 13:09:28.448833477 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:09:28.449259609 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:09:28.449274638 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=97 Ack=17 Win=86 Len=0 TSval=545687723 TSecr=545687723
+Apr 15, 2020 13:09:33.448818709 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:09:33.449565806 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:09:33.449596781 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=105 Ack=25 Win=86 Len=0 TSval=545692723 TSecr=545692723
+Apr 15, 2020 13:09:38.448285203 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:09:38.448599700 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:09:38.448608711 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=113 Ack=33 Win=86 Len=0 TSval=545697722 TSecr=545697722
+Apr 15, 2020 13:09:43.381177520 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0xcc0f A vortex.data.microsoft.com OPT
+Apr 15, 2020 13:09:43.381207549 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0xf426 AAAA vortex.data.microsoft.com OPT
+Apr 15, 2020 13:09:43.382485939 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0xcc0f A vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net A 111.221.29.254 OPT
+Apr 15, 2020 13:09:43.383172328 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0xf426 AAAA vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net OPT
+Apr 15, 2020 13:09:43.449031136 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:09:43.449523713 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:09:43.449542125 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=121 Ack=41 Win=86 Len=0 TSval=545702723 TSecr=545702723
+Apr 15, 2020 13:09:44.199777686 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x7530 A vortex.data.microsoft.com OPT
+Apr 15, 2020 13:09:44.199787427 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x8d39 AAAA vortex.data.microsoft.com OPT
+Apr 15, 2020 13:09:44.200167701 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x7530 A vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net A 111.221.29.254 OPT
+Apr 15, 2020 13:09:44.200353706 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x8d39 AAAA vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net OPT
+Apr 15, 2020 13:09:48.448290117 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:09:48.449138044 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:09:48.449171926 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=129 Ack=49 Win=86 Len=0 TSval=545707723 TSecr=545707723
+Apr 15, 2020 13:09:52.563264741 CST    127.0.0.1 → 127.0.0.1    TCP 45906 → 1080 [SYN] Seq=0 Win=43690 Len=0 MSS=65495 SACK_PERM=1 TSval=545711837 TSecr=0 WS=512
+Apr 15, 2020 13:09:52.563274423 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [SYN, ACK] Seq=0 Ack=1 Win=43690 Len=0 MSS=65495 SACK_PERM=1 TSval=545711837 TSecr=545711837 WS=512
+Apr 15, 2020 13:09:52.563282891 CST    127.0.0.1 → 127.0.0.1    TCP 45906 → 1080 [ACK] Seq=1 Ack=1 Win=44032 Len=0 TSval=545711837 TSecr=545711837
+Apr 15, 2020 13:09:52.563338494 CST    127.0.0.1 → 127.0.0.1    Socks Version: 5 Connect to server request
+Apr 15, 2020 13:09:52.563342952 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=1 Ack=4 Win=44032 Len=0 TSval=545711837 TSecr=545711837
+Apr 15, 2020 13:09:52.563631294 CST    127.0.0.1 → 127.0.0.1    Socks Version: 5 Connect to server response
+Apr 15, 2020 13:09:52.563635473 CST    127.0.0.1 → 127.0.0.1    TCP 45906 → 1080 [ACK] Seq=4 Ack=3 Win=44032 Len=0 TSval=545711837 TSecr=545711837
+Apr 15, 2020 13:09:52.563653989 CST    127.0.0.1 → 127.0.0.1    Socks Version: 5 Command Request - Connect
+Apr 15, 2020 13:09:52.563754291 CST    127.0.0.1 → 127.0.0.1    Socks Version: 5 Command Response - Connect
+Apr 15, 2020 13:09:52.563843364 CST    127.0.0.1 → 127.0.0.1    TLSv1 Client Hello
+Apr 15, 2020 13:09:52.569016212 CST    127.0.0.1 → 127.0.0.1    HTTP POST /stats/flowentry/add HTTP/1.1  (text/plain)
+Apr 15, 2020 13:09:52.570069760 CST    127.0.0.1 → 127.0.0.1    HTTP HTTP/1.1 200 OK 
+Apr 15, 2020 13:09:52.570079333 CST    127.0.0.1 → 127.0.0.1    TCP 43248 → 8080 [ACK] Seq=657 Ack=140 Win=86 Len=0 TSval=545711844 TSecr=545711844
+Apr 15, 2020 13:09:52.570302737 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_FLOW_MOD
+Apr 15, 2020 13:09:52.570310232 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=129 Ack=161 Win=86 Len=0 TSval=545711844 TSecr=545711844
+Apr 15, 2020 13:09:52.607682898 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=13 Ack=552 Win=44032 Len=0 TSval=545711881 TSecr=545711837
+Apr 15, 2020 13:09:53.360650703 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x0fcb PTR 2.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:09:53.464469698 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x0fcb PTR 2.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:09:53.465461601 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x782b PTR 7.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:09:53.579732759 CST    127.0.0.1 → 127.0.0.1    TCP [TCP Keep-Alive] 43248 → 8080 [ACK] Seq=656 Ack=140 Win=86 Len=0 TSval=545712853 TSecr=545711844
+Apr 15, 2020 13:09:53.579814878 CST    127.0.0.1 → 127.0.0.1    TCP [TCP Keep-Alive ACK] 8080 → 43248 [ACK] Seq=140 Ack=657 Win=86 Len=0 TSval=545712853 TSecr=545711844
+Apr 15, 2020 13:09:53.584855019 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x782b PTR 7.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:09:53.635100568 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Server Hello, Change Cipher Spec, Encrypted Handshake Message
+Apr 15, 2020 13:09:53.635292217 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Change Cipher Spec, Encrypted Handshake Message
+Apr 15, 2020 13:09:53.635312735 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=159 Ack=603 Win=44032 Len=0 TSval=545712909 TSecr=545712909
+Apr 15, 2020 13:09:53.635728277 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Application Data
+Apr 15, 2020 13:09:53.635736205 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=159 Ack=696 Win=44032 Len=0 TSval=545712909 TSecr=545712909
+Apr 15, 2020 13:09:53.635973292 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Application Data
+Apr 15, 2020 13:09:53.635980472 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=159 Ack=942 Win=44032 Len=0 TSval=545712910 TSecr=545712910
+Apr 15, 2020 13:09:53.636013993 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Application Data
+Apr 15, 2020 13:09:53.636020825 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=159 Ack=1480 Win=43520 Len=0 TSval=545712910 TSecr=545712910
+Apr 15, 2020 13:09:54.120568104 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Application Data
+Apr 15, 2020 13:09:54.120748948 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Application Data
+Apr 15, 2020 13:09:54.120770016 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45906 [ACK] Seq=237 Ack=1518 Win=44032 Len=0 TSval=545713394 TSecr=545713394
+Apr 15, 2020 13:09:54.128893171 CST    127.0.0.1 → 127.0.0.1    TLSv1.2 Application Data, Application Data
+Apr 15, 2020 13:09:54.171731641 CST    127.0.0.1 → 127.0.0.1    TCP 45906 → 1080 [ACK] Seq=1518 Ack=757 Win=44032 Len=0 TSval=545713445 TSecr=545713403

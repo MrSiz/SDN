@@ -37,3 +37,4 @@ sudo tcpdump udp -i s1-eth2 -Q out >> out.txt
 
 
 #### tshark
+抓包工具，相当于`wireshark`的命令版。可以用来抓`openflow`消息。

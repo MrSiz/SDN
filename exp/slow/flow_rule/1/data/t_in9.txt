@@ -1,0 +1,25 @@
+Apr 15, 2020 13:23:24.193877482 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0xa28b A vortex.data.microsoft.com OPT
+Apr 15, 2020 13:23:24.193896121 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x119e AAAA vortex.data.microsoft.com OPT
+Apr 15, 2020 13:23:24.194264719 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0xa28b A vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net A 111.221.29.254 OPT
+Apr 15, 2020 13:23:24.194553801 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x119e AAAA vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net OPT
+Apr 15, 2020 13:23:24.448653767 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:23:24.449052176 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:23:24.449064306 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=9 Ack=9 Win=86 Len=0 TSval=546523723 TSecr=546523723
+Apr 15, 2020 13:23:25.860464864 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x365e A vortex.data.microsoft.com OPT
+Apr 15, 2020 13:23:25.860475152 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x9666 AAAA vortex.data.microsoft.com OPT
+Apr 15, 2020 13:23:25.860717722 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x365e A vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net A 111.221.29.254 OPT
+Apr 15, 2020 13:23:25.860901975 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x9666 AAAA vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net OPT
+Apr 15, 2020 13:23:29.448347232 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:23:29.449060370 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:23:29.449085628 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=17 Ack=17 Win=86 Len=0 TSval=546528723 TSecr=546528723
+Apr 15, 2020 13:23:33.394080111 CST    127.0.0.1 → 127.0.0.1    HTTP POST /stats/flowentry/add HTTP/1.1  (text/plain)
+Apr 15, 2020 13:23:33.395632422 CST    127.0.0.1 → 127.0.0.1    HTTP HTTP/1.1 200 OK 
+Apr 15, 2020 13:23:33.395646674 CST    127.0.0.1 → 127.0.0.1    TCP 43248 → 8080 [ACK] Seq=658 Ack=140 Win=86 Len=0 TSval=546532669 TSecr=546532669
+Apr 15, 2020 13:23:33.396033678 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_FLOW_MOD
+Apr 15, 2020 13:23:33.396044658 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=17 Ack=129 Win=86 Len=0 TSval=546532670 TSecr=546532670
+Apr 15, 2020 13:23:33.516467143 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0xf8c9 PTR 2.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:23:33.610804989 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0xf8c9 PTR 2.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:23:33.611552576 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x64cf PTR 13.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:23:33.689827028 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x64cf PTR 13.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:23:34.411701711 CST    127.0.0.1 → 127.0.0.1    TCP [TCP Keep-Alive] 43248 → 8080 [ACK] Seq=657 Ack=140 Win=86 Len=0 TSval=546533685 TSecr=546532669
+Apr 15, 2020 13:23:34.411769476 CST    127.0.0.1 → 127.0.0.1    TCP [TCP Keep-Alive ACK] 8080 → 43248 [ACK] Seq=140 Ack=658 Win=86 Len=0 TSval=546533685 TSecr=546532669

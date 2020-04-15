@@ -164,16 +164,16 @@ int main(int argc, char **argv) {
 
     // const int MAX_CNT = (rand() % 10 + 2);
     // 每轮的发包数
-    const int MAX_NUM = 500;
+    const int MAX_NUM = 1000000;
 
     // const std::string dest_ip = "10.0.0.4";
     // const std::string dest_mac = "00:00:00:00:00:04";
-    std::unordered_map<std::string, bool> vis;
+    // std::unordered_map<std::string, bool> vis;
     for (int packet_cnt = 0; packet_cnt < MAX_CNT; ++packet_cnt) {
         // std::cout << "\n";
     //    auto rand_ip = get_randip();
     //    if (vis.count(rand_ip)) continue;
-        auto rand_ip = "10.0.0.1";
+        auto rand_ip = "10.0.0.14";
         auto rand_mac = get_randmac();
         // std::cout << rand_ip << "\n";
         for (int send_num = 0; send_num < MAX_NUM; ++send_num) {

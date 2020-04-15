@@ -1,0 +1,58 @@
+Apr 15, 2020 13:03:53.554876076 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:53.555125474 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:53.555151150 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45854 [ACK] Seq=147 Ack=52 Win=86 Len=0 TSval=545352829 TSecr=545352829
+Apr 15, 2020 13:03:53.555617931 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:53.555627463 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45854 [ACK] Seq=147 Ack=145 Win=86 Len=0 TSval=545352830 TSecr=545352830
+Apr 15, 2020 13:03:53.555998980 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:53.556008334 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45854 [ACK] Seq=147 Ack=391 Win=86 Len=0 TSval=545352830 TSecr=545352830
+Apr 15, 2020 13:03:53.556053322 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:53.556062046 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45854 [ACK] Seq=147 Ack=929 Win=85 Len=0 TSval=545352830 TSecr=545352830
+Apr 15, 2020 13:03:53.626162209 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_PORT_STATUS
+Apr 15, 2020 13:03:53.667724910 CST    127.0.0.1 → 127.0.0.1    TCP 6653 → 48862 [ACK] Seq=1 Ack=81 Win=86 Len=0 TSval=545352942 TSecr=545352900
+Apr 15, 2020 13:03:54.008116263 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:54.008385364 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:54.008407997 CST    127.0.0.1 → 127.0.0.1    TCP 1080 → 45854 [ACK] Seq=216 Ack=967 Win=86 Len=0 TSval=545353282 TSecr=545353282
+Apr 15, 2020 13:03:54.008514598 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:54.030448673 CST    127.0.0.1 → 127.0.0.1    Socks Unknown
+Apr 15, 2020 13:03:54.030579099 CST    127.0.0.1 → 127.0.0.1    TCP 45854 → 1080 [ACK] Seq=967 Ack=774 Win=86 Len=0 TSval=545353305 TSecr=545353283
+Apr 15, 2020 13:03:56.448261863 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:03:56.448270517 CST    127.0.0.1 → 127.0.0.1    TCP 6653 → 48862 [ACK] Seq=1 Ack=89 Win=86 Len=0 TSval=545355722 TSecr=545355722
+Apr 15, 2020 13:03:56.448608536 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:03:56.448613850 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=89 Ack=9 Win=86 Len=0 TSval=545355723 TSecr=545355723
+Apr 15, 2020 13:04:01.448799021 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:04:01.449290266 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:04:01.449308666 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=97 Ack=17 Win=86 Len=0 TSval=545360723 TSecr=545360723
+Apr 15, 2020 13:04:06.448341106 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:04:06.448684842 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:04:06.448696743 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=105 Ack=25 Win=86 Len=0 TSval=545365723 TSecr=545365723
+Apr 15, 2020 13:04:11.448948870 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:04:11.449516599 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:04:11.449541930 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=113 Ack=33 Win=86 Len=0 TSval=545370724 TSecr=545370724
+Apr 15, 2020 13:04:16.448885296 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:04:16.449193596 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:04:16.449202324 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=121 Ack=41 Win=86 Len=0 TSval=545375723 TSecr=545375723
+Apr 15, 2020 13:04:20.527176391 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0xcc61 A vortex.data.microsoft.com OPT
+Apr 15, 2020 13:04:20.527190921 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x5c6c AAAA vortex.data.microsoft.com OPT
+Apr 15, 2020 13:04:20.527763547 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0xcc61 A vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net A 111.221.29.254 OPT
+Apr 15, 2020 13:04:20.528161541 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x5c6c AAAA vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net OPT
+Apr 15, 2020 13:04:20.972743689 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x540f A vortex.data.microsoft.com OPT
+Apr 15, 2020 13:04:20.972754961 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0xda17 AAAA vortex.data.microsoft.com OPT
+Apr 15, 2020 13:04:20.973027080 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x540f A vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net A 111.221.29.254 OPT
+Apr 15, 2020 13:04:20.973199057 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0xda17 AAAA vortex.data.microsoft.com CNAME asimov.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME hk2.vortex.data.microsoft.com.akadns.net OPT
+Apr 15, 2020 13:04:21.448985101 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:04:21.449424810 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:04:21.449444257 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=129 Ack=49 Win=86 Len=0 TSval=545380723 TSecr=545380723
+Apr 15, 2020 13:04:24.777511037 CST    127.0.0.1 → 127.0.0.1    HTTP POST /stats/flowentry/add HTTP/1.1  (text/plain)
+Apr 15, 2020 13:04:24.778585647 CST    127.0.0.1 → 127.0.0.1    HTTP HTTP/1.1 200 OK 
+Apr 15, 2020 13:04:24.778597677 CST    127.0.0.1 → 127.0.0.1    TCP 43248 → 8080 [ACK] Seq=657 Ack=140 Win=86 Len=0 TSval=545384053 TSecr=545384053
+Apr 15, 2020 13:04:24.778839940 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_FLOW_MOD
+Apr 15, 2020 13:04:24.778847822 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=129 Ack=161 Win=86 Len=0 TSval=545384053 TSecr=545384053
+Apr 15, 2020 13:04:25.356661816 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x6866 PTR 2.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:04:25.449885867 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x6866 PTR 2.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:04:25.450372237 CST    127.0.0.1 → 127.0.0.53   DNS Standard query 0x40f8 PTR 5.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:04:25.500341236 CST   127.0.0.53 → 127.0.0.1    DNS Standard query response 0x40f8 PTR 5.0.0.10.in-addr.arpa OPT
+Apr 15, 2020 13:04:25.803689337 CST    127.0.0.1 → 127.0.0.1    TCP [TCP Keep-Alive] 43248 → 8080 [ACK] Seq=656 Ack=140 Win=86 Len=0 TSval=545385078 TSecr=545384053
+Apr 15, 2020 13:04:25.803718553 CST    127.0.0.1 → 127.0.0.1    TCP [TCP Keep-Alive ACK] 8080 → 43248 [ACK] Seq=140 Ack=657 Win=86 Len=0 TSval=545385078 TSecr=545384053
+Apr 15, 2020 13:04:29.448271165 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REQUEST
+Apr 15, 2020 13:04:29.448797316 CST    127.0.0.1 → 127.0.0.1    OpenFlow Type: OFPT_ECHO_REPLY
+Apr 15, 2020 13:04:29.448817665 CST    127.0.0.1 → 127.0.0.1    TCP 48862 → 6653 [ACK] Seq=137 Ack=169 Win=86 Len=0 TSval=545388723 TSecr=545388723
